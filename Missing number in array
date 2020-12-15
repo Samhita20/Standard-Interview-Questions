@@ -1,0 +1,9 @@
+Given an array of size N-1 such that it can only contain distinct integers in the range of 1 to N. Find the missing element.
+
+
+def MissingNumber(a,n):
+    actual=n*(n+1)//2
+    return actual-sum(a)
+n = int(input())
+a = list(map(int,input().split()))
+print(MissingNumber(a,n))
