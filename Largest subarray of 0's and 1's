@@ -1,0 +1,28 @@
+Largest subarray of 0's and 1's 
+
+Given an array of 0s and 1s. Find the length of the largest subarray with equal number of 0s and 1s.
+
+def maxLen(a, n):
+    # code here
+    hashmap={}
+    s = 0
+    maxlen = 0
+    end = -1
+    for i in range(n):
+        if(a[i]==0):
+            a[i]=-1
+        else:
+            a[i]=1
+    
+    for i in range(n):
+        s = s + a[i]
+        if(s==0):
+            maxlen = i + 1
+            end = i
+        if s in hashmap:
+            if(maxlen<i-hashmap[s]):
+                maxlen= i - hashmap[s]
+                end = i
+        else:
+            hashmap[s] = i
+    return maxlen
