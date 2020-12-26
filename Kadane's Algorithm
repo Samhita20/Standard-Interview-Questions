@@ -1,0 +1,14 @@
+Kadane's Algorithm
+
+Given an array arr of N integers. Find the contiguous sub-array with maximum sum.
+
+def maxSubArraySum(a,n):
+    max1 = 0
+    max2 = 0
+    for i in range(n):
+        max1 += a[i]
+        if(max2<max1):
+            max2 = max1
+        if(max1<0):
+            max1 = 0
+    return max2
